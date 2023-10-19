@@ -1,0 +1,6 @@
+header {
+  height: 700px;
+  background: 
+    linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%),
+    url("../assets/background.jpg") 0% 70%/ cover no-repeat;
+}
