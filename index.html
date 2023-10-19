@@ -20,18 +20,51 @@
         </h1>
         <h2>Cherchez parmi plus de 1500 recettes du quotidien, simples et délicieuses</h2>
         <input type="text" id="searchbar" placeholder="Rechercher une recette, un ingrédient...">
-        <button>
+        <button class="searchbar__button">
             <i class="fa-solid fa-magnifying-glass"></i>
         </button>
     </header>
     <main>
-        <section>
-            <div class="searchlist">Ingrédients</div>
-            <div class="searchlist">Apareils</div>
-            <div class="searchlist">Ustensiles</div>
+        <section class="searchlist">
+            <div class="searchlist__list">Ingrédients</div>
+            <div class="searchlist__list">Apareils</div>
+            <div class="searchlist__list">Ustensiles</div>
             <h3>50 recettes</h3>
+            <div class="searchlist__tags"></div>
         </section>
-        <section></section>
+        <section class="recipe-container">
+            <article class="recipe" id="1">
+                <img src="assets/Recette01.jpg" alt="Photo de la recette">
+                <p class="recipe__time">10 min</p>
+                <h4 class="recipe__title">Limonade de Coco</h4>
+                <h5 class="recipe__category">Recette</span>
+                <p class="recipe__description">
+                    Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée
+                </p>
+                <h6 class="recipe__ingredients">Ingredients</span>
+                <div class="ingredient">
+                    <div class="ingredient__item">
+                        <p class="ingredient__type">Lait de coco</p>
+                        <p class="ingredient__quantity">400 ml</p>
+                    </div>
+                    <div class="ingredient__item">
+                        <p class="ingredient__type">Jus de citron</p>
+                        <p class="ingredient__quantity">2</p>
+                    </div>
+                    <div class="ingredient__item">
+                        <p class="ingredient__type">crème de coco</p>
+                        <p class="ingredient__quantity">2 cas</p>
+                    </div>
+                    <div class="ingredient__item">
+                        <p class="ingredient__type">sucre</p>
+                        <p class="ingredient__quantity">30 g</p>
+                    </div>
+                    <div class="ingredient__item">
+                        <p class="ingredient__type">glaçons</p>
+                    </div>
+                </div>
+            </article>
+        </section>
     </main>
 </body>
 </html>
