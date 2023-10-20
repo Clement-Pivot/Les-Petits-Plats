@@ -1,10 +1,22 @@
 .searchlist {
     display: grid;
     grid-template-columns: 200px 200px 200px 1fr ;
+    column-gap: 66px;
+    margin-bottom: 43px;
     &__list {
+        display: flex;
         background-color: white;
+        border-radius: 10px;
+        align-items: center;
+        padding: 16px;
+        font-size: 16px;
+        font-weight: 600;
+        color: $black;
+        list-style-type: none;
     }
     &__count {
         justify-self: end;
+        font-family: "Anton";
+        font-size: 21px;
     }
 }
