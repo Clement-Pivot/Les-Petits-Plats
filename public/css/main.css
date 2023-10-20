@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  height: 700px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url("../img/background.jpg") 0% 70%/cover no-repeat;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL2Fzc2V0cy9zY3NzL21haW4uc2NzcyIsIi4uLy4uL2Fzc2V0cy9jc3MvbWFpbi5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxTQUFBO0VBQ0EsVUFBQTtBQ0NGOztBREVBO0VBQ0UsYUFBQTtFQUNBLHNJQUNFO0FDQUoiLCJmaWxlIjoibWFpbi5jc3MifQ== */
