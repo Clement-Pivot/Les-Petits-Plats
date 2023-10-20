@@ -3,9 +3,20 @@ body {
   padding: 0;
 }
 
+.logo {
+  margin: 0;
+  color: #fff;
+  padding-top: 51px;
+  padding-left: 69px;
+  text-transform: uppercase;
+  font-family: "Anton";
+  font-size: 24px;
+  font-weight: 200;
+}
+
 header {
   height: 700px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url("../img/background.jpg") 0% 70%/cover no-repeat;
 }
 
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL2Fzc2V0cy9zY3NzL21haW4uc2NzcyIsIi4uLy4uL2Fzc2V0cy9jc3MvbWFpbi5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxTQUFBO0VBQ0EsVUFBQTtBQ0NGOztBREVBO0VBQ0UsYUFBQTtFQUNBLHNJQUNFO0FDQUoiLCJmaWxlIjoibWFpbi5jc3MifQ== */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL2Fzc2V0cy9zY3NzL2Jhc2UvX2JvZHkuc2NzcyIsIi4uLy4uL2Fzc2V0cy9jc3MvbWFpbi5jc3MiLCIuLi8uLi9hc3NldHMvc2Nzcy9jb21wb25lbnRzL19sb2dvLnNjc3MiLCIuLi8uLi9hc3NldHMvc2Nzcy9sYXlvdXRzL19oZWFkZXIuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFNBQUE7RUFDQSxVQUFBO0FDQ0o7O0FDSEE7RUFDSSxTQUFBO0VBQ0EsV0FBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSx5QkFBQTtFQUNBLG9CQUFBO0VBQ0EsZUFBQTtFQUNBLGdCQUFBO0FETUo7O0FFZEE7RUFDSSxhQUFBO0VBQ0Esc0lBQ0U7QUZnQk4iLCJmaWxlIjoibWFpbi5jc3MifQ== */
