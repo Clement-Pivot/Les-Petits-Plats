@@ -5,17 +5,27 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "live-server --no-browser --port=5500"
+    "sass": "sass --watch ./assets/scss/main.scss:./assets/css/main.css",
+    "prefix": "postcss --watch ./assets/css/main.css --use autoprefixer -d ./public/css/",
+    "live-server": "live-server --port=5500 --no-browser",
+    "start:dev": "concurrently \"npm run sass\" \"npm run prefix\" \"npm run live-server\""
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "eslint": "^8.48.0",
     "eslint-config-defaults": "^9.0.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-n": "^16.0.2",
     "eslint-plugin-promise": "^6.1.1",
-    "live-server": "^1.2.2"
+    "live-server": "^1.2.2",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "sass": "^1.69.4"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.16"
   }
 }
