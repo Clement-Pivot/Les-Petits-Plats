@@ -1,11 +1,7 @@
-body {
-  margin: 0;
-  padding: 0;
-}
+@import "./utils/variables";
 
-header {
-  height: 700px;
-  background: 
-    linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%),
-    url("../img/background.jpg") 0% 70%/ cover no-repeat;
-}
+@import "./base/body";
+
+@import "./components/logo";
+
+@import "./layouts/header";
