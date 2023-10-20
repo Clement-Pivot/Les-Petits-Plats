@@ -1,20 +1,20 @@
 header {
-  height: 700px;
-  background: 
-    linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%),
-    url("../img/background.jpg") 0% 70%/ cover no-repeat;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
+    height: 700px;
+    background:
+        linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%),
+        url("../img/background.jpg") 0% 70%/ cover no-repeat;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 
-  .hero-text {
-    color: $yellow;
-    font-family: "Anton";
-    font-size: 44px;
-    text-transform: uppercase;
-    font-weight: 300;
-    width: 700px;
-    text-align: center;
-    margin: 170px auto 30px;
-  }
+    .hero-text {
+        color: $yellow;
+        font-family: "Anton";
+        font-size: 44px;
+        text-transform: uppercase;
+        font-weight: 300;
+        width: 700px;
+        text-align: center;
+        margin: 170px auto 30px;
+    }
 }
