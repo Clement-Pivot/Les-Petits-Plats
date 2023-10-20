@@ -1,0 +1,14 @@
+.searchbar {
+    &__input {
+        min-width: 950px;
+        height: 30px;
+    }
+    &__button {
+        width: 52px;
+        height: 52px;
+        font-size: 36px;
+        color: white;
+        background-color: $black;
+        border-radius: 10px;
+    }
+}
