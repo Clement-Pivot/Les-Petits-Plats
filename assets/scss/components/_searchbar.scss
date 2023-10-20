@@ -1,14 +1,23 @@
 .searchbar {
+    position: relative;
     &__input {
         min-width: 950px;
-        height: 30px;
+        height: 72px;
+        border-radius: 10px;
+        padding-left: 35px;
+        border: none;
+        font-size: 16px;
     }
     &__button {
+        position: absolute;
+        right: 10px;
+        top: 10px;
         width: 52px;
         height: 52px;
         font-size: 36px;
         color: white;
         background-color: $black;
         border-radius: 10px;
+        border: none;
     }
 }
