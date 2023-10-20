@@ -1,0 +1,13 @@
+.recipe-card {
+    position: relative;
+    width: 380px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: white;
+    img {
+        width: 380px;
+        height: 250px;
+        object-fit: cover;
+        margin-bottom: -5px;
+    }
+}

@@ -1,0 +1,31 @@
+.recipe {
+    padding: 32px 25px 61px;
+    &__time {
+        position: absolute;
+        margin: 0;
+        top: 20px;
+        right: 20px;
+        background-color: $yellow;
+        padding: 5px 15px;
+        border-radius: 15px;
+    }
+    &__title {
+        font-family: "Anton";
+        font-size: 18px;
+        font-weight: 400;
+        margin: 0;
+    }
+    &__category {
+        color: $grey;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 1.08px;
+        font-size: 12px;
+        margin: 28px 0 15px;
+    }
+    &__description {
+        color: $black;
+        font-size: 14px;
+        margin-bottom: 32px;
+    }
+}

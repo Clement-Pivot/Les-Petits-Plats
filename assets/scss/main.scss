@@ -5,8 +5,10 @@
 
 @import "./components/logo";
 @import "./components/searchbar";
-@import "./components/recipeCard";
+@import "./components/recipe";
+@import "./components/ingredients";
 
 @import "./layouts/header";
 @import "./layouts/searchlist";
 @import "./layouts/recipe-container";
+@import "./layouts/recipeCard";

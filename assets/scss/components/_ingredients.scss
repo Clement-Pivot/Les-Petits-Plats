@@ -1,0 +1,16 @@
+.ingredient {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 14px;
+    row-gap: 21px;
+    &__item {
+        margin: 0;
+    }
+    &__type {
+        margin: 0;
+    }
+    &__quantity {
+        margin: 0;
+        color: $grey;
+    }
+}
