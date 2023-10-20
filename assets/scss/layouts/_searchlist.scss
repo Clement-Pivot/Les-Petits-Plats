@@ -1,0 +1,10 @@
+.searchlist {
+    display: grid;
+    grid-template-columns: 200px 200px 200px 1fr ;
+    &__list {
+        background-color: white;
+    }
+    &__count {
+        justify-self: end;
+    }
+}
