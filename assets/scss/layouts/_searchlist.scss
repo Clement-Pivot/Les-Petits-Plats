@@ -3,6 +3,9 @@
     grid-template-columns: 200px 200px 200px 1fr ;
     column-gap: 66px;
     margin-bottom: 43px;
+    .hidden {
+        display: none;
+    }
     &__list {
         height: max-content;
         max-height: 315px;
@@ -33,9 +36,6 @@
                 position: absolute;
                 right: 10px;
                 width: 14px;
-            }
-            &.hidden {
-                display: none;
             }
         }
     }
