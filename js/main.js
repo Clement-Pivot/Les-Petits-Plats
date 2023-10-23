@@ -1,46 +1,32 @@
 import { recipes } from '../data/recipes.js'
 import { createCardDOM } from './utils/recipeCard.js'
+import { SearchList } from './objects/SearchList.js'
 
 const recipesDOMContainer = document.querySelector('.recipe-container')
-const ingredientList = new Set()
-const ingredientSearchList = document.querySelector('#ingredient-search-list')
-const applianceList = new Set()
-const applianceSearchList = document.querySelector('#appliance-search-list')
-const ustensilsList = new Set()
-const ustensilsSearchList = document.querySelector('#ustensils-search-list')
+const filters = new Map()
+filters.set('ingredient', new SearchList('ingredient'))
+filters.set('appliance', new SearchList('appliance'))
+filters.set('ustensils', new SearchList('ustensils'))
 
 recipes.forEach(item => {
   item.DOM = createCardDOM(item)
   recipesDOMContainer.appendChild(item.DOM)
-  item.ingredients.forEach(ingr => {
-    if (!ingredientList.has(ingr.ingredient)) {
-      ingredientList.add(ingr.ingredient)
-    }
-  })
-  if (!applianceList.has(item.appliance)) {
-    applianceList.add(item.appliance)
+  item.ingredients
+    .filter(ing => !filters.get('ingredient').list.has(ing.ingredient))
+    .map(ing => filters.get('ingredient').populateList(ing.ingredient))
+  item.ustensils
+    .filter(ust => !filters.get('ustensils').list.has(ust))
+    .map(ust => filters.get('ustensils').populateList(ust))
+  if (!filters.get('appliance').list.has(item.appliance)) {
+    filters.get('appliance').populateList(item.appliance)
   }
-  item.ustensils.forEach(ust => {
-    if (!ustensilsList.has(ust)) {
-      ustensilsList.add(ust)
-    }
+})
+
+filters.forEach(filt => {
+  filt.list.forEach(item => {
+    const li = document.createElement('li')
+    li.textContent = item
+    filt.searchList.appendChild(li)
   })
-})
-
-ingredientList.forEach(ing => {
-  const li = document.createElement('li')
-  li.textContent = ing
-  ingredientSearchList.appendChild(li)
-})
-
-applianceList.forEach(appl => {
-  const li = document.createElement('li')
-  li.textContent = appl
-  applianceSearchList.appendChild(li)
-})
-
-ustensilsList.forEach(ust => {
-  const li = document.createElement('li')
-  li.textContent = ust
-  ustensilsSearchList.appendChild(li)
+  filt.init()
 })
