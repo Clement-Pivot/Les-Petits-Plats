@@ -14,11 +14,13 @@ export class SearchList {
           .filter(node => node.classList.contains('hidden'))
           .map(node => node.classList.remove('hidden'))
         this._searchExpanded = true
+        e.target.parentNode.children[0].querySelector('.chevron').classList.add('rotate')
       } else {
         [...e.target.parentNode.children]
           .filter(node => node.classList.contains('hideable'))
           .map(node => node.classList.add('hidden'))
         this._searchExpanded = false
+        e.target.parentNode.children[0].querySelector('.chevron').classList.remove('rotate')
       }
     })
     this._list.forEach(item => {
