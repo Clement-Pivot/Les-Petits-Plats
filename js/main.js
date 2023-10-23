@@ -3,6 +3,7 @@ import { createCardDOM } from './utils/recipeCard.js'
 
 const recipesDOMContainer = document.querySelector('.recipe-container')
 const ingredientList = new Set()
+const applianceList = new Set()
 recipes.forEach(item => {
   item.DOM = createCardDOM(item)
   recipesDOMContainer.appendChild(item.DOM)
@@ -11,4 +12,7 @@ recipes.forEach(item => {
       ingredientList.add(ingr.ingredient)
     }
   })
+  if ([...applianceList].indexOf(item.appliance) < 0) {
+    applianceList.add(item.appliance)
+  }
 })
