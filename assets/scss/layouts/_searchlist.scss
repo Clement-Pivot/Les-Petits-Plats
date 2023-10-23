@@ -37,9 +37,12 @@
                 font-weight: 400;
                 width: 90%;
             }
+            &.item:first-of-type {
+                margin-top: 24px;
+            }
             input {
                 box-sizing: border-box;
-                margin: 7px 16px 17px;
+                margin: 0 16px;
                 width: 100%;
                 height: 36px;
                 border-radius: 2px;
@@ -48,11 +51,17 @@
                 outline: none;
                 font-size: 14px;
             }
+            .cross {
+                position: absolute;
+                right: 44px;
+                width: 10px;
+                height: 10px;
+            }
             .magnify{
                 position: absolute;
-                right: 27.5px;
-                top: 12px;
+                right: 25px;
                 width: 14px;
+                height: 14px;
             }
             .chevron {
                 transition: transform 200ms;
