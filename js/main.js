@@ -2,6 +2,7 @@ import { recipes } from '../data/recipes.js'
 import { createCardDOM } from './utils/recipeCard.js'
 
 const recipesDOMContainer = document.querySelector('.recipe-container')
+const ingredientSearchList = document.querySelector('#ingredient-search-list')
 const ingredientList = new Set()
 const applianceList = new Set()
 const ustensilsList = new Set()
@@ -9,16 +10,22 @@ recipes.forEach(item => {
   item.DOM = createCardDOM(item)
   recipesDOMContainer.appendChild(item.DOM)
   item.ingredients.forEach(ingr => {
-    if ([...ingredientList].indexOf(ingr.ingredient) < 0) {
+    if (!ingredientList.has(ingr.ingredient)) {
       ingredientList.add(ingr.ingredient)
     }
   })
-  if ([...applianceList].indexOf(item.appliance) < 0) {
+  if (!applianceList.has(item.appliance)) {
     applianceList.add(item.appliance)
   }
   item.ustensils.forEach(ust => {
-    if ([...ustensilsList].indexOf(ust) < 0) {
+    if (!ustensilsList.has(ust)) {
       ustensilsList.add(ust)
     }
   })
+})
+
+ingredientList.forEach(ing => {
+  const li = document.createElement('li')
+  li.textContent = ing
+  ingredientSearchList.appendChild(li)
 })
