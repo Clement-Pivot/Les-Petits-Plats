@@ -24,6 +24,7 @@ export function createCardDOM (recipe) {
 
   const recipeCategoryDesc = document.createElement('h5')
   recipeCategoryDesc.classList.add('recipe__category')
+  recipeCategoryDesc.textContent = 'Recette'
   divRecipe.appendChild(recipeCategoryDesc)
 
   const description = document.createElement('p')
@@ -31,8 +32,14 @@ export function createCardDOM (recipe) {
   description.textContent = recipe.description
   divRecipe.appendChild(description)
 
+  const recipeCategoryIng = document.createElement('h6')
+  recipeCategoryIng.classList.add('recipe__category')
+  recipeCategoryIng.textContent = 'Ingrédients'
+  divRecipe.appendChild(recipeCategoryIng)
+
   const divIngredients = document.createElement('div')
   divIngredients.classList.add('ingredient')
+
   recipe.ingredients.forEach(ingredient => {
     const divIngredientItem = document.createElement('div')
     divIngredientItem.classList.add('ingredient__item')
