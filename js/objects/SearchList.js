@@ -23,6 +23,7 @@ export class SearchList {
     })
     this._list.forEach(item => {
       const li = document.createElement('li')
+      li.classList.add('item')
       li.textContent = item
       this._searchList.appendChild(li)
     })
