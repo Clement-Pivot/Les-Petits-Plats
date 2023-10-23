@@ -7,6 +7,7 @@ const ingredientSearchList = document.querySelector('#ingredient-search-list')
 const applianceList = new Set()
 const applianceSearchList = document.querySelector('#appliance-search-list')
 const ustensilsList = new Set()
+const ustensilsSearchList = document.querySelector('#ustensils-search-list')
 
 recipes.forEach(item => {
   item.DOM = createCardDOM(item)
@@ -36,4 +37,10 @@ applianceList.forEach(appl => {
   const li = document.createElement('li')
   li.textContent = appl
   applianceSearchList.appendChild(li)
+})
+
+ustensilsList.forEach(ust => {
+  const li = document.createElement('li')
+  li.textContent = ust
+  ustensilsSearchList.appendChild(li)
 })
