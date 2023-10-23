@@ -23,10 +23,5 @@ recipes.forEach(item => {
 })
 
 filters.forEach(filt => {
-  filt.list.forEach(item => {
-    const li = document.createElement('li')
-    li.textContent = item
-    filt.searchList.appendChild(li)
-  })
   filt.init()
 })

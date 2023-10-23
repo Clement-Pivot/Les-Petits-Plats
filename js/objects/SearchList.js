@@ -1,6 +1,7 @@
 export class SearchList {
   constructor (data) {
     this._list = new Set()
+    this._tags = new Set()
     this._search = document.querySelector(`#${data}-search`)
     this._searchExpanded = false
     this._searchList = document.querySelector(`#${data}-search-list`)
@@ -20,14 +21,15 @@ export class SearchList {
         this._searchExpanded = false
       }
     })
+    this._list.forEach(item => {
+      const li = document.createElement('li')
+      li.textContent = item
+      this._searchList.appendChild(li)
+    })
   }
 
   get list () {
     return this._list
-  }
-
-  get searchList () {
-    return this._searchList
   }
 
   populateList (data) {
