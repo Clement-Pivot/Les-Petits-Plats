@@ -6,6 +6,7 @@ export class SearchList {
     this._searchInput = document.querySelector(`#${data}`)
     this._searchExpanded = false
     this._searchList = document.querySelector(`#${data}-search-list`)
+    this._searchSelected = document.querySelector(`#${data}-search-selected`)
     this._cross = this._searchInput.parentNode.querySelector('.cross')
   }
 
@@ -35,6 +36,10 @@ export class SearchList {
     this._cross.addEventListener('click', () => {
       this._searchInput.value = ''
       this.searchInputChange()
+    })
+    const itemList = [...this._searchList.querySelectorAll('li.item')]
+    itemList.forEach(item => {
+      item.addEventListener('click', e => this.selectItem(e))
     })
   }
 
@@ -71,5 +76,9 @@ export class SearchList {
         if ([...item.classList].includes('hidden')) item.classList.remove('hidden')
       })
     }
+  }
+
+  selectItem (e) {
+    console.log(e.target)
   }
 }
