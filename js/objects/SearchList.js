@@ -99,5 +99,6 @@ export class SearchList {
       this._tags.delete(selected.textContent)
       this._searchList.append(selected)
     }
+    this._obs.forEach(obs => obs.fire(selected))
   }
 }
