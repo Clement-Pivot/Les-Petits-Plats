@@ -19,59 +19,69 @@
         ul {
             padding: 0;
         }
-        li{
-            padding: 0;
-            position: relative;
-            width: 100%;
-            justify-content: space-between;
-            align-items: center;
+    }
+    &__category{
+        padding: 0;
+        position: relative;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+        &:not(.hidden) {
+            display: flex;
+        }
+        &:first-of-type {
+            padding: 16px;
+        }
+        input {
             box-sizing: border-box;
-            &:not(.hidden) {
-                display: flex;
-            }
-            &:not(.item):first-of-type {
-                padding: 16px;
-            }
-            &.item {
-                margin: 0 0 13px 16px;
-                font-weight: 400;
-                width: 90%;
-            }
-            &.item:first-of-type {
-                margin-top: 13px;
-            }
-            input {
-                box-sizing: border-box;
-                margin: 0 16px 11px;
-                width: 100%;
-                height: 36px;
-                border-radius: 2px;
-                border: 1px solid $light-grey;
-                color: $grey;
-                outline: none;
-                font-size: 14px;
-            }
-            .cross {
-                position: absolute;
-                right: 44px;
-                width: 10px;
-                height: 10px;
-                top: 13px;
-            }
-            .magnify{
-                position: absolute;
-                right: 25px;
-                width: 14px;
-                height: 14px;
-                top: 13px;
-            }
-            .chevron {
-                transition: transform 200ms;
-                transform: rotate(0deg);
-            }
-            .rotate {
-                transform: rotate(180deg);
-            }
+            margin: -5px 16px 11px;
+            width: 100%;
+            height: 36px;
+            border-radius: 2px;
+            border: 1px solid $light-grey;
+            color: $grey;
+            outline: none;
+            font-size: 14px;
+        }
+        .cross {
+            position: absolute;
+            right: 44px;
+            width: 10px;
+            height: 10px;
+            top: 8px;
+        }
+        .magnify{
+            position: absolute;
+            right: 25px;
+            width: 14px;
+            height: 14px;
+            top: 8px;
+        }
+        .chevron {
+            transition: transform 200ms;
+            transform: rotate(0deg);
+        }
+        .rotate {
+            transform: rotate(180deg);
+        }
+    }
+    &__selected {
+        background-color: $yellow;
+        .item {
+            margin: 0;
+            padding: 9px 19px;
+        }
+        .item:last-of-type {
+            margin-bottom: 21px;
+        }
+    }
+    &__items {
+        list-style-type: none;
+        .item {
+            margin: 13px 0 13px 16px;
+            font-weight: 400;
+            width: 90%;
         }
     }
     &__count {
