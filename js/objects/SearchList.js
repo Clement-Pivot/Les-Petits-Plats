@@ -8,6 +8,7 @@ export class SearchList {
     this._searchList = document.querySelector(`#${data}-search-list`)
     this._searchSelected = document.querySelector(`#${data}-search-selected`)
     this._cross = this._searchInput.parentNode.querySelector('.cross')
+    this._obs = new Set()
   }
 
   init () {
@@ -44,11 +45,17 @@ export class SearchList {
   }
 
   get list () {
-    return this._list
+    return [...this._list]
+  }
+
+  subscribe (obs) {
+    this._obs.add(obs)
   }
 
   populateList (data) {
-    this._list.add(data)
+    if (!this.list.some(ing => ing.toLowerCase().includes(data.toLowerCase()))) {
+      this._list.add(data)
+    }
   }
 
   searchInputChange () {
@@ -80,5 +87,8 @@ export class SearchList {
 
   selectItem (e) {
     console.log(e.target)
+    const selected = e.target
+    selected.remove()
+    this._searchSelected.append(selected)
   }
 }

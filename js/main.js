@@ -11,15 +11,9 @@ filters.set('ustensils', new SearchList('ustensils'))
 recipes.forEach(item => {
   item.DOM = createCardDOM(item)
   recipesDOMContainer.appendChild(item.DOM)
-  item.ingredients
-    .filter(ing => !filters.get('ingredient').list.has(ing.ingredient))
-    .map(ing => filters.get('ingredient').populateList(ing.ingredient))
-  item.ustensils
-    .filter(ust => !filters.get('ustensils').list.has(ust))
-    .map(ust => filters.get('ustensils').populateList(ust))
-  if (!filters.get('appliance').list.has(item.appliance)) {
-    filters.get('appliance').populateList(item.appliance)
-  }
+  item.ingredients.map(ing => filters.get('ingredient').populateList(ing.ingredient))
+  item.ustensils.map(ust => filters.get('ustensils').populateList(ust))
+  filters.get('appliance').populateList(item.appliance)
 })
 
 filters.forEach(filt => {
