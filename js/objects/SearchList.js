@@ -86,9 +86,14 @@ export class SearchList {
   }
 
   selectItem (e) {
-    console.log(e.target)
     const selected = e.target
     selected.remove()
-    this._searchSelected.append(selected)
+    if (!this._tags.has(selected.textContent)) {
+      this._searchSelected.append(selected)
+      this._tags.add(selected.textContent)
+    } else {
+      this._tags.delete(selected.textContent)
+      this._searchList.append(selected)
+    }
   }
 }
