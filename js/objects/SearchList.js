@@ -47,18 +47,29 @@ export class SearchList {
   }
 
   searchInputChange () {
+    let curr = []
     if (this._searchInput.value.length > 0) {
-      if ([...this._cross.classList].includes('hidden')) this._cross.classList.remove('hidden')
+      if ([...this._cross.classList].includes('hidden')) {
+        this._cross.classList.remove('hidden')
+      }
+      curr = [...this._searchList.querySelectorAll('li.hidden')]
+        .filter(item => item.textContent.toLowerCase().includes(this._searchInput.value.toLowerCase()))
+        .map(item => item.classList.remove('hidden'))
+
+      curr = [...this._searchList.querySelectorAll('li:not(.hidden)')]
+        .filter((item) => !item.textContent.toLowerCase().includes(this._searchInput.value.toLowerCase()))
+        .map(item => {
+          if (![...item.classList].includes('hidden')) item.classList.add('hidden')
+          return item
+        })
     } else {
       if (![...this._cross.classList].includes('hidden')) {
         this._cross.classList.add('hidden')
       }
-      [...this._searchList.querySelectorAll('li')].forEach(item => {
+      curr = [...this._searchList.querySelectorAll('li')]
+      curr.forEach(item => {
         if ([...item.classList].includes('hidden')) item.classList.remove('hidden')
       })
     }
-    [...this._searchList.querySelectorAll('li')]
-      .filter(item => !item.textContent.includes(this._searchInput.value.toLowerCase()))
-      .map(item => item.classList.add('hidden'))
   }
 }
