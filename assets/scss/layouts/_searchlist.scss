@@ -33,16 +33,16 @@
                 padding: 16px;
             }
             &.item {
-                margin: 13px 0 0 16px;
+                margin: 0 0 13px 16px;
                 font-weight: 400;
                 width: 90%;
             }
             &.item:first-of-type {
-                margin-top: 24px;
+                margin-top: 13px;
             }
             input {
                 box-sizing: border-box;
-                margin: 0 16px;
+                margin: 0 16px 11px;
                 width: 100%;
                 height: 36px;
                 border-radius: 2px;
@@ -56,12 +56,14 @@
                 right: 44px;
                 width: 10px;
                 height: 10px;
+                top: 13px;
             }
             .magnify{
                 position: absolute;
                 right: 25px;
                 width: 14px;
                 height: 14px;
+                top: 13px;
             }
             .chevron {
                 transition: transform 200ms;
