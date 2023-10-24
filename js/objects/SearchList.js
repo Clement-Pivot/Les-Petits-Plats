@@ -31,10 +31,10 @@ export class SearchList {
       li.textContent = item
       this._searchList.appendChild(li)
     })
-    this._searchInput.addEventListener('input', e => this.searchInputChange(e))
+    this._searchInput.addEventListener('input', () => this.searchInputChange())
     this._cross.addEventListener('click', () => {
       this._searchInput.value = ''
-      if (![...this._cross.classList].includes('hidden')) this._cross.classList.add('hidden')
+      this.searchInputChange()
     })
   }
 
@@ -50,7 +50,15 @@ export class SearchList {
     if (this._searchInput.value.length > 0) {
       if ([...this._cross.classList].includes('hidden')) this._cross.classList.remove('hidden')
     } else {
-      if (![...this._cross.classList].includes('hidden')) this._cross.classList.add('hidden')
+      if (![...this._cross.classList].includes('hidden')) {
+        this._cross.classList.add('hidden')
+      }
+      [...this._searchList.querySelectorAll('li')].forEach(item => {
+        if ([...item.classList].includes('hidden')) item.classList.remove('hidden')
+      })
     }
+    [...this._searchList.querySelectorAll('li')]
+      .filter(item => !item.textContent.includes(this._searchInput.value.toLowerCase()))
+      .map(item => item.classList.add('hidden'))
   }
 }
