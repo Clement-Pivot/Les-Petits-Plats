@@ -53,7 +53,11 @@ export class SearchList {
   }
 
   populateList (data) {
-    if (!this.list.some(ing => ing.toLowerCase().includes(data.toLowerCase()))) {
+    if (!this.list.some(ing => {
+      return ing.toLowerCase().slice(0, -1).includes(data.toLowerCase()) ||
+        ing.toLowerCase().includes(data.toLowerCase().slice(0, -1)) ||
+        ing.toLowerCase().includes(data.toLowerCase())
+    })) {
       this._list.add(data)
     }
   }
