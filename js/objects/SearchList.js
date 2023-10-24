@@ -3,8 +3,10 @@ export class SearchList {
     this._list = new Set()
     this._tags = new Set()
     this._search = document.querySelector(`#${data}-search`)
+    this._searchInput = document.querySelector(`#${data}`)
     this._searchExpanded = false
     this._searchList = document.querySelector(`#${data}-search-list`)
+    this._cross = this._searchInput.parentNode.querySelector('.cross')
   }
 
   init () {
@@ -29,6 +31,7 @@ export class SearchList {
       li.textContent = item
       this._searchList.appendChild(li)
     })
+    this._searchInput.addEventListener('input', e => this.searchInputChange(e))
   }
 
   get list () {
@@ -37,5 +40,13 @@ export class SearchList {
 
   populateList (data) {
     this._list.add(data)
+  }
+
+  searchInputChange () {
+    if (this._searchInput.value.length > 0) {
+      if ([...this._cross.classList].includes('hidden')) this._cross.classList.remove('hidden')
+    } else {
+      if (![...this._cross.classList].includes('hidden')) this._cross.classList.add('hidden')
+    }
   }
 }
