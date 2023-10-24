@@ -32,6 +32,10 @@ export class SearchList {
       this._searchList.appendChild(li)
     })
     this._searchInput.addEventListener('input', e => this.searchInputChange(e))
+    this._cross.addEventListener('click', () => {
+      this._searchInput.value = ''
+      if (![...this._cross.classList].includes('hidden')) this._cross.classList.add('hidden')
+    })
   }
 
   get list () {
