@@ -8,13 +8,10 @@ export class SearchBar {
   init () {
     this._input.addEventListener('input', () => {
       if (this._input.value.length > 0) {
-        if ([...this._cross.classList].includes('hidden')) {
-          this._cross.classList.remove('hidden')
-        }
+        this._cross.classList.remove('hidden')
+        this._obs.forEach(obs => obs.fireBar(this._input.value))
       } else {
-        if (![...this._cross.classList].includes('hidden')) {
-          this._cross.classList.add('hidden')
-        }
+        this._cross.classList.add('hidden')
       }
     })
     this._cross.addEventListener('click', () => {
