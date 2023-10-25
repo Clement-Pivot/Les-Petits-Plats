@@ -1,5 +1,6 @@
 export class SearchList {
   constructor (data) {
+    this._type = data
     this._list = new Set()
     this._tags = new Set()
     this._search = document.querySelector(`#${data}-search`)
@@ -95,6 +96,6 @@ export class SearchList {
       this._tags.delete(selected.textContent)
       this._searchList.append(selected)
     }
-    this._obs.forEach(obs => obs.fireList(selected))
+    this._obs.forEach(obs => obs.fire(selected.textContent, this._type))
   }
 }

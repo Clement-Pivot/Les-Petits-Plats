@@ -9,7 +9,7 @@ export class SearchBar {
     this._input.addEventListener('input', () => {
       if (this._input.value.length > 0) {
         this._cross.classList.remove('hidden')
-        this._obs.forEach(obs => obs.fireBar(this._input.value))
+        this._obs.forEach(obs => obs.fire(this._input.value))
       } else {
         this._cross.classList.add('hidden')
       }
