@@ -6,6 +6,21 @@ export class SearchBar {
   }
 
   init () {
+    this._input.addEventListener('input', () => {
+      if (this._input.value.length > 0) {
+        if ([...this._cross.classList].includes('hidden')) {
+          this._cross.classList.remove('hidden')
+        }
+      } else {
+        if (![...this._cross.classList].includes('hidden')) {
+          this._cross.classList.add('hidden')
+        }
+      }
+    })
+    this._cross.addEventListener('click', () => {
+      this._input.value = ''
+      this._cross.classList.add('hidden')
+    })
   }
 
   subscribe (obs) {
