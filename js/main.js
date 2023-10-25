@@ -1,12 +1,19 @@
 import { recipes } from '../data/recipes.js'
 import { createCardDOM } from './utils/recipeCard.js'
 import { SearchList } from './objects/SearchList.js'
+import { SearchObserver } from './observers/SearchObserver.js'
 
 const recipesDOMContainer = document.querySelector('.recipe-container')
 const filters = new Map()
 filters.set('ingredient', new SearchList('ingredient'))
 filters.set('appliance', new SearchList('appliance'))
 filters.set('ustensils', new SearchList('ustensils'))
+const searchObs = new SearchObserver({
+  tags: 'tags',
+  counter: 'count',
+  searchbar: 'searchbar',
+  recipes
+})
 
 recipes.forEach(item => {
   item.DOM = createCardDOM(item)
@@ -18,4 +25,5 @@ recipes.forEach(item => {
 
 filters.forEach(filt => {
   filt.init()
+  filt.subscribe(searchObs)
 })
