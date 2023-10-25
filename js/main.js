@@ -15,7 +15,7 @@ const searchBar = new SearchBar({
 })
 const searchObs = new SearchObserver({
   tags: 'tags',
-  counter: 'count',
+  counter: 'counter',
   searchbar: 'searchbar',
   recipes
 })
