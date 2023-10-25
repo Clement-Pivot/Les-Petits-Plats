@@ -1,5 +1,6 @@
 import { recipes } from '../data/recipes.js'
 import { createCardDOM } from './utils/recipeCard.js'
+import { SearchBar } from './objects/SearchBar.js'
 import { SearchList } from './objects/SearchList.js'
 import { SearchObserver } from './observers/SearchObserver.js'
 
@@ -8,6 +9,10 @@ const filters = new Map()
 filters.set('ingredient', new SearchList('ingredient'))
 filters.set('appliance', new SearchList('appliance'))
 filters.set('ustensils', new SearchList('ustensils'))
+const searchBar = new SearchBar({
+  input: 'searchbar',
+  cross: '.searchbar .cross'
+})
 const searchObs = new SearchObserver({
   tags: 'tags',
   counter: 'count',
@@ -27,3 +32,5 @@ filters.forEach(filt => {
   filt.init()
   filt.subscribe(searchObs)
 })
+searchBar.init()
+searchBar.subscribe(searchObs)
