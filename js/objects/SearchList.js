@@ -68,11 +68,13 @@ export class SearchList {
     if (this._searchInput.value.length > 0) {
       this._cross.classList.remove('hidden')
       curr = [...this._searchList.querySelectorAll('li.hidden')]
-        .filter(item => item.textContent.toLowerCase().includes(this._searchInput.value.toLowerCase()))
+        .filter(item => item.textContent.toLowerCase()
+          .includes(this._searchInput.value.toLowerCase()))
         .map(item => item.classList.remove('hidden'))
 
       curr = [...this._searchList.querySelectorAll('li:not(.hidden)')]
-        .filter((item) => !item.textContent.toLowerCase().includes(this._searchInput.value.toLowerCase()))
+        .filter((item) => !item.textContent.toLowerCase()
+          .includes(this._searchInput.value.toLowerCase()))
         .map(item => {
           if (![...item.classList].includes('hidden')) item.classList.add('hidden')
           return item
@@ -93,10 +95,15 @@ export class SearchList {
       this._searchSelected.append(selected)
       this._tags.add(selected.textContent)
       this._obs.forEach(obs => obs.fire(selected.textContent, this._type))
+      const li = document.createElement('li')
+      li.textContent = selected.textContent
+      document.querySelector('#tags').append(li)
     } else {
       this._tags.delete(selected.textContent)
       this._searchList.append(selected)
-      this._obs.forEach(obs => obs.fire('', 'bar'))
+      this._obs.forEach(obs => obs.fire('', 'refresh'))
+      const allTags = [...document.querySelectorAll('#tags li')]
+      allTags.find(e => e.textContent === selected.textContent).remove()
     }
   }
 }
