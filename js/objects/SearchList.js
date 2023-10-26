@@ -92,10 +92,11 @@ export class SearchList {
     if (!this._tags.has(selected.textContent)) {
       this._searchSelected.append(selected)
       this._tags.add(selected.textContent)
+      this._obs.forEach(obs => obs.fire(selected.textContent, this._type))
     } else {
       this._tags.delete(selected.textContent)
       this._searchList.append(selected)
+      this._obs.forEach(obs => obs.fire('', 'bar'))
     }
-    this._obs.forEach(obs => obs.fire(selected.textContent, this._type))
   }
 }

@@ -13,36 +13,40 @@ export class SearchObserver {
   }
 
   fire (text, type = 'bar') {
-    console.log(text)
     let working = []
+    const startTime = Date.now()
     switch (type) {
       case 'bar':
         console.log('bar')
         break
-      case 'ingredient':
-        console.log('ingredient')
-        this._tagsList.get('ingredient').add(text)
+      case 'ingredients':
+      case 'ustensils':
         working = [...this._shownRecipes]
-        working
-          .filter(elem => !elem.ingredients
-            .map(e => e.ingredient.toLowerCase())
+        working = working
+          .filter(elem => !elem[type]
+            .map(e => e.ingredient !== undefined ? e.ingredient.toLowerCase() : e.toLowerCase())
             .includes(text.toLowerCase()))
-          .map(elem => {
-            elem.DOM.classList.add('hidden')
-            this._hiddenRecipes.push(elem)
-            return elem
-          })
-        this._shownRecipes = this._shownRecipes.filter(elem => !this._hiddenRecipes.includes(elem))
+        working.forEach(elem => {
+          elem.DOM.classList.add('hidden')
+          this._hiddenRecipes.push(elem)
+        })
         break
       case 'appliance':
-        console.log('appliance')
-        break
-      case 'ustensils':
-        console.log('ustensils')
+        working = [...this._shownRecipes]
+        working = working
+          .filter(elem => !elem.appliance.toLowerCase()
+            .includes(text.toLowerCase()))
+        working.forEach(elem => {
+          elem.DOM.classList.add('hidden')
+          this._hiddenRecipes.push(elem)
+        })
         break
       default:
         throw new Error('Error : search type not know.')
     }
+    const endTime = Date.now()
+    console.log(`Durée de la recherche : ${String(endTime - startTime)}ms`)
+    this._shownRecipes = this._recipesList.filter(elem => !this._hiddenRecipes.includes(elem))
     this._counterDOM.textContent = this._shownRecipes.length
     this._counterDOM.textContent += this._shownRecipes.length !== 1 ? ' recettes' : ' recette'
   }
