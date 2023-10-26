@@ -10,6 +10,18 @@ export class SearchList {
     this._searchSelected = document.querySelector(`#${data}-search-selected`)
     this._cross = this._searchInput.parentNode.querySelector('.cross')
     this._obs = new Set()
+    this._tagCross = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+    this._tagCross.setAttribute('width', '14')
+    this._tagCross.setAttribute('height', '13')
+    this._tagCross.setAttribute('viewBox', '0 0 14 13')
+    this._tagCross.setAttribute('fill', 'none')
+    const tagCrossPath = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+    tagCrossPath.setAttribute('d', 'M12 11.5L7 6.5M7 6.5L2 1.5M7 6.5L12 1.5M7 6.5L2 11.5')
+    tagCrossPath.setAttribute('stroke', '#1B1B1B')
+    tagCrossPath.setAttribute('stroke-width', '2.16667')
+    tagCrossPath.setAttribute('stroke-linecap', 'round')
+    tagCrossPath.setAttribute('stroke-linejoin', 'round')
+    this._tagCross.append(tagCrossPath)
   }
 
   init () {
@@ -97,6 +109,7 @@ export class SearchList {
       this._obs.forEach(obs => obs.fire(selected.textContent, this._type))
       const li = document.createElement('li')
       li.textContent = selected.textContent
+      li.append(this._tagCross.cloneNode(true))
       document.querySelector('#tags').append(li)
     } else {
       this._tags.delete(selected.textContent)
