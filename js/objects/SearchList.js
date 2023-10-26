@@ -101,7 +101,7 @@ export class SearchList {
     } else {
       this._tags.delete(selected.textContent)
       this._searchList.append(selected)
-      this._obs.forEach(obs => obs.fire('', 'refresh'))
+      this._obs.forEach(obs => obs.fire(selected.textContent, 'refresh'))
       const allTags = [...document.querySelectorAll('#tags li')]
       allTags.find(e => e.textContent === selected.textContent).remove()
     }
