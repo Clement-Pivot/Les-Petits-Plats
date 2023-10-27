@@ -10,11 +10,13 @@ export class SearchList {
     this._searchSelected = document.querySelector(`#${data}-search-selected`)
     this._cross = this._searchInput.parentNode.querySelector('.cross')
     this._obs = new Set()
+
     this._tagCross = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
     this._tagCross.setAttribute('width', '14')
     this._tagCross.setAttribute('height', '13')
     this._tagCross.setAttribute('viewBox', '0 0 14 13')
     this._tagCross.setAttribute('fill', 'none')
+    this._tagCross.classList.add('item__tag-cross')
     const tagCrossPath = document.createElementNS('http://www.w3.org/2000/svg', 'path')
     tagCrossPath.setAttribute('d', 'M12 11.5L7 6.5M7 6.5L2 1.5M7 6.5L12 1.5M7 6.5L2 11.5')
     tagCrossPath.setAttribute('stroke', '#1B1B1B')
@@ -22,6 +24,25 @@ export class SearchList {
     tagCrossPath.setAttribute('stroke-linecap', 'round')
     tagCrossPath.setAttribute('stroke-linejoin', 'round')
     this._tagCross.append(tagCrossPath)
+
+    this._liCross = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+    this._liCross.setAttribute('width', '17')
+    this._liCross.setAttribute('height', '17')
+    this._liCross.setAttribute('viewBox', '0 0 17 17')
+    this._liCross.setAttribute('fill', 'none')
+    this._liCross.classList.add('item__li-cross')
+    const liCrossCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
+    liCrossCircle.setAttribute('cx', '8.5')
+    liCrossCircle.setAttribute('cy', '8.5')
+    liCrossCircle.setAttribute('r', '8.5')
+    liCrossCircle.setAttribute('fill', 'black')
+    this._liCross.append(liCrossCircle)
+    const liCrossPath = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+    liCrossPath.setAttribute('d', 'M11 11L8.5 8.5M8.5 8.5L6 6M8.5 8.5L11 6M8.5 8.5L6 11')
+    liCrossPath.setAttribute('stroke', '#FFD15B')
+    liCrossPath.setAttribute('stroke-linecap', 'round')
+    liCrossPath.setAttribute('stroke-linejoin', 'round')
+    this._liCross.append(liCrossPath)
   }
 
   init () {
@@ -45,6 +66,8 @@ export class SearchList {
       li.classList.add('item')
       li.classList.add(this._type)
       li.textContent = item
+      li.append(this._liCross.cloneNode(true))
+      li.append(this._tagCross.cloneNode(true))
       this._searchList.appendChild(li)
     })
     this._searchInput.addEventListener('input', () => this.searchInputChange())
