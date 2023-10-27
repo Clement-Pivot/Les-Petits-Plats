@@ -111,12 +111,16 @@ export class SearchList {
       li.textContent = selected.textContent
       li.append(this._tagCross.cloneNode(true))
       document.querySelector('#tags').append(li)
+      document.querySelector('#tags').classList.remove('hidden')
     } else {
       this._tags.delete(selected.textContent)
       this._searchList.append(selected)
       this._obs.forEach(obs => obs.fire(selected.textContent, 'refresh'))
       const allTags = [...document.querySelectorAll('#tags li')]
       allTags.find(e => e.textContent === selected.textContent).remove()
+      if (document.querySelectorAll('#tags li').length === 0) {
+        document.querySelector('#tags').classList.add('hidden')
+      }
     }
   }
 }
