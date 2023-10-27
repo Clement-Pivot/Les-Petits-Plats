@@ -43,6 +43,7 @@ export class SearchList {
     this._list.forEach(item => {
       const li = document.createElement('li')
       li.classList.add('item')
+      li.classList.add(this._type)
       li.textContent = item
       this._searchList.appendChild(li)
     })
@@ -101,23 +102,27 @@ export class SearchList {
   }
 
   selectItem (e) {
-    const selected = e.target
+    let selected = e.target
+    const text = selected.childNodes[0].textContent
+    if (selected.parentNode.classList.contains('searchlist__tags')) {
+      selected = [...document.querySelectorAll(`.searchlist__selected .${this._type}`)]
+        .find(node => node.childNodes[0].textContent === text)
+    }
     selected.remove()
-    if (!this._tags.has(selected.textContent)) {
+    if (!this._tags.has(text)) {
       this._searchSelected.append(selected)
-      this._tags.add(selected.textContent)
-      this._obs.forEach(obs => obs.fire(selected.textContent, this._type))
-      const li = document.createElement('li')
-      li.textContent = selected.textContent
-      li.append(this._tagCross.cloneNode(true))
-      document.querySelector('#tags').append(li)
+      this._tags.add(text)
+      this._obs.forEach(obs => obs.fire(text, this._type))
       document.querySelector('#tags').classList.remove('hidden')
+      const selectedClone = selected.cloneNode(true)
+      document.querySelector('#tags').append(selectedClone)
+      selectedClone.addEventListener('click', e => this.selectItem(e))
     } else {
-      this._tags.delete(selected.textContent)
+      this._tags.delete(text)
       this._searchList.append(selected)
-      this._obs.forEach(obs => obs.fire(selected.textContent, 'refresh'))
+      this._obs.forEach(obs => obs.fire(text, 'refresh'))
       const allTags = [...document.querySelectorAll('#tags li')]
-      allTags.find(e => e.textContent === selected.textContent).remove()
+      allTags.find(e => e.childNodes[0].textContent === text).remove()
       if (document.querySelectorAll('#tags li').length === 0) {
         document.querySelector('#tags').classList.add('hidden')
       }
