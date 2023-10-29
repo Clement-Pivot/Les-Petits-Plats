@@ -11,7 +11,6 @@
         border-radius: 10px;
         align-items: center;
         font-size: 16px;
-        font-weight: 600;
         color: $black;
         list-style-type: none;
         padding: 0;
@@ -22,6 +21,7 @@
     }
     &__category{
         padding: 0;
+        font-weight: 600;
         position: relative;
         width: 100%;
         justify-content: space-between;
@@ -70,9 +70,18 @@
     &__selected {
         background-color: $yellow;
         .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin: 0;
-            padding: 9px 19px;
+            padding: 9px 14px 9px 19px;
             cursor: pointer;
+            &:hover {
+                font-weight: 600;
+                .li-cross {
+                    display: inline;
+                }
+            }
         }
         .item:last-of-type {
             margin-bottom: 21px;
@@ -92,5 +101,8 @@
         font-family: "Anton";
         font-size: 21px;
         margin: 0;
+    }
+    .tag-cross, .li-cross {
+        display: none;
     }
 }
