@@ -82,6 +82,10 @@ export class SearchList {
     return [...this._list]
   }
 
+  get type () {
+    return this._type
+  }
+
   subscribe (obs) {
     this._obs.add(obs)
   }
@@ -145,6 +149,33 @@ export class SearchList {
       allTags.find(e => e.childNodes[0].textContent === text).remove()
       if (document.querySelectorAll('#tags li').length === 0) {
         document.querySelector('#tags').classList.add('hidden')
+      }
+    }
+  }
+
+  clearList () {
+    const liList = [...this._searchList.querySelectorAll('li')]
+    liList.forEach(item => item.classList.add('unavailable'))
+  }
+
+  availItem (item) {
+    const liList = [...this._searchList.querySelectorAll('li')]
+    if (Array.isArray(item)) {
+      item.forEach(elem => {
+        if (elem.ingredient) {
+          // TODO : optimiser ici
+          if (liList.find(li => li.textContent === elem.ingredient)) {
+            liList.find(li => li.textContent === elem.ingredient).classList.remove('unavailable')
+          }
+        } else {
+          if (liList.find(li => li.textContent === elem)) {
+            liList.find(li => li.textContent === elem).classList.remove('unavailable')
+          }
+        }
+      })
+    } else {
+      if (liList.find(li => li.textContent === item)) {
+        liList.find(li => li.textContent === item).classList.remove('unavailable')
       }
     }
   }

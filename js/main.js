@@ -17,7 +17,8 @@ const searchObs = new SearchObserver({
   tags: 'tags',
   counter: 'counter',
   searchbar: 'searchbar',
-  recipes
+  recipes,
+  filters
 })
 
 recipes.forEach(item => {

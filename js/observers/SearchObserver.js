@@ -10,6 +10,7 @@ export class SearchObserver {
     this._recipesList = data.recipes
     this._hiddenRecipes = []
     this._shownRecipes = this._recipesList
+    this.filters = data.filters
   }
 
   searchByTag (text, type, working) {
@@ -61,6 +62,10 @@ export class SearchObserver {
     this._shownRecipes.map(recipe => recipe.DOM.classList.remove('hidden'))
     this._counterDOM.textContent = this._shownRecipes.length
     this._counterDOM.textContent += this._shownRecipes.length !== 1 ? ' recettes' : ' recette'
+    this.filters.forEach(filt => {
+      filt.clearList()
+      this._shownRecipes.forEach(recipe => filt.availItem(recipe[filt.type]))
+    })
     const endTime = Date.now()
     console.log(`Durée de la recherche : ${String(endTime - startTime)}ms`)
   }
