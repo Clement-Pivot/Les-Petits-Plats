@@ -66,6 +66,12 @@ export class SearchObserver {
       filt.clearList()
       this._shownRecipes.forEach(recipe => filt.availItem(recipe[filt.type]))
     })
+    if (this._shownRecipes.length === 0) {
+      document.querySelector('#no-recipes').classList.remove('hidden')
+      document.querySelector('#no-recipes-search').textContent = text
+    } else {
+      document.querySelector('#no-recipes').classList.add('hidden')
+    }
     const endTime = Date.now()
     console.log(`Durée de la recherche : ${String(endTime - startTime)}ms`)
   }
