@@ -69,15 +69,12 @@ export class SearchList {
       li.append(this._liCross.cloneNode(true))
       li.append(this._tagCross.cloneNode(true))
       this._searchList.appendChild(li)
+      li.addEventListener('click', e => this.selectItem(e))
     })
     this._searchInput.addEventListener('input', () => this.searchInputChange())
     this._cross.addEventListener('click', () => {
       this._searchInput.value = ''
       this.searchInputChange()
-    })
-    const itemList = [...this._searchList.querySelectorAll('li.item')]
-    itemList.forEach(item => {
-      item.addEventListener('click', e => this.selectItem(e))
     })
   }
 
