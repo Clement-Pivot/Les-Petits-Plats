@@ -9,14 +9,18 @@ export class SearchBar {
     this._input.addEventListener('input', () => {
       if (this._input.value.length > 0) {
         this._cross.classList.remove('hidden')
-        this._obs.forEach(obs => obs.fire(this._input.value))
+        if (this._input.value.length >= 3) {
+          this._obs.forEach(obs => obs.fire(this._input.value))
+        }
       } else {
         this._cross.classList.add('hidden')
+        this._obs.forEach(obs => obs.fire(this._input.value, 'refresh'))
       }
     })
     this._cross.addEventListener('click', () => {
       this._input.value = ''
       this._cross.classList.add('hidden')
+      this._obs.forEach(obs => obs.fire(this._input.value, 'refresh'))
     })
   }
 

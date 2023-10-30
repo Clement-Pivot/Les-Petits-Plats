@@ -35,7 +35,7 @@ export class SearchObserver {
     const startTime = Date.now()
     switch (type) {
       case 'bar':
-        console.log('bar')
+        console.log('Text : ' + text)
         break
       case 'ingredients':
       case 'ustensils':
