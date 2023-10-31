@@ -60,6 +60,7 @@ export class SearchObserver {
     }
     this._shownRecipes = this._recipesList.filter(elem => !this._hiddenRecipes.includes(elem))
     this._shownRecipes.map(recipe => recipe.DOM.classList.remove('hidden'))
+    if (type === 'refresh') this.fire(this._searchbarDOM.value)
     this._counterDOM.textContent = this._shownRecipes.length
     this._counterDOM.textContent += this._shownRecipes.length !== 1 ? ' recettes' : ' recette'
     this.filters.forEach(filt => {
