@@ -47,6 +47,7 @@ export class SearchObserver {
         break
       case 'refresh':
         this._hiddenRecipes = []
+        this._searchLength = this._searchbarDOM.value.length
         working = [...this._recipesList]
         for (const ele of this._tagsList) {
           if (ele[1].has(text)) ele[1].delete(text)
