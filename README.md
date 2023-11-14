@@ -1,6 +1,6 @@
 # Lets Petits Plats
 
- Code du projet 7 Les Petits Plats de la formation React d'OpenClassroom en HTML, CSS et Javascript uniquement.
+ Code du projet 7 Les Petits Plats de la formation React d'OpenClassroom en HTML, SASS et Javascript uniquement.
 
 ### Pré-requis
 
