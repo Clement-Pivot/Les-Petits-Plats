@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^10.4.16",
     "concurrently": "^8.2.2",
     "eslint": "^8.48.0",
     "eslint-config-defaults": "^9.0.0",
@@ -24,8 +25,5 @@
     "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
     "sass": "^1.69.4"
-  },
-  "dependencies": {
-    "autoprefixer": "^10.4.16"
   }
 }
