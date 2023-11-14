@@ -28,7 +28,7 @@
             <svg class="cross hidden" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
                 <path d="M15 15L8.5 8.5M8.5 8.5L2 2M8.5 8.5L15 2M8.5 8.5L2 15" stroke="#7A7A7A" stroke-width="2.16667" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <button class="searchbar__button" role="search">
+            <button class="searchbar__button" aria-label="search-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="29" viewBox="0 0 28 29" fill="none">
                     <circle cx="10" cy="10.4219" r="9.5" stroke="white"/>
                     <line x1="18.3536" y1="19.0683" x2="27.3536" y2="28.0683" stroke="white"/>
@@ -39,7 +39,7 @@
     <main>
         <section class="searchlist">
             <div class="searchlist__list">
-                <div class="searchlist__category focusable" id="ingredients-search">
+                <div class="searchlist__category focusable" id="ingredients-search" tabindex="0">
                     Ingrédients
                     <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" fill="none">
                         <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round"/>
@@ -59,7 +59,7 @@
                 <ul class="searchlist__items hidden hideable" id="ingredients-search-list"></ul>
             </div>
             <div class="searchlist__list">
-                <div class="searchlist__category focusable" id="appliance-search">
+                <div class="searchlist__category focusable" id="appliance-search" tabindex="0">
                     Appareils
                     <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" fill="none">
                         <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round"/>
@@ -79,7 +79,7 @@
                 <ul class="searchlist__items hidden hideable" id="appliance-search-list"></ul>
             </div>
             <div class="searchlist__list">
-                <div class="searchlist__category focusable" id="ustensils-search">
+                <div class="searchlist__category focusable" id="ustensils-search" tabindex="0">
                     Ustensiles
                     <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" fill="none">
                         <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round"/>

@@ -65,6 +65,7 @@ export class SearchList {
       const li = document.createElement('li')
       li.classList.add('item')
       li.classList.add(this._type)
+      li.setAttribute('tabindex', '0')
       li.textContent = item
       li.append(this._liCross.cloneNode(true))
       li.append(this._tagCross.cloneNode(true))
