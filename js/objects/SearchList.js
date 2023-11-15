@@ -46,21 +46,7 @@ export class SearchList {
   }
 
   init () {
-    this._search.addEventListener('click', e => {
-      if (!this._searchExpanded) {
-        [...e.target.parentNode.children]
-          .filter(node => node.classList.contains('hidden'))
-          .map(node => node.classList.remove('hidden'))
-        this._searchExpanded = true
-        e.target.parentNode.children[0].querySelector('.chevron').classList.add('rotate')
-      } else {
-        [...e.target.parentNode.children]
-          .filter(node => node.classList.contains('hideable'))
-          .map(node => node.classList.add('hidden'))
-        this._searchExpanded = false
-        e.target.parentNode.children[0].querySelector('.chevron').classList.remove('rotate')
-      }
-    })
+    this._search.addEventListener('click', e => this.toggleList(e))
     this._list.forEach(item => {
       const li = document.createElement('li')
       li.classList.add('item')
@@ -76,6 +62,25 @@ export class SearchList {
     this._cross.addEventListener('click', () => {
       this._searchInput.value = ''
       this.searchInputChange()
+    })
+    document.addEventListener('keydown', e => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        let focus = document.querySelector(':focus')
+        if (focus !== null) {
+          if (focus.classList.contains('item')) {
+            focus = focus.childNodes[0].textContent
+            if (this._list.has(focus)) {
+              e.preventDefault()
+              e.stopPropagation()
+              this.selectItem(e)
+            }
+          } else if (focus === this._search) {
+            e.preventDefault()
+            e.stopPropagation()
+            this.toggleList(e)
+          }
+        }
+      }
     })
   }
 
@@ -178,6 +183,22 @@ export class SearchList {
       if (liList.find(li => li.textContent === item)) {
         liList.find(li => li.textContent === item).classList.remove('unavailable')
       }
+    }
+  }
+
+  toggleList (e) {
+    if (!this._searchExpanded) {
+      [...e.target.parentNode.children]
+        .filter(node => node.classList.contains('hidden'))
+        .map(node => node.classList.remove('hidden'))
+      this._searchExpanded = true
+      e.target.parentNode.children[0].querySelector('.chevron').classList.add('rotate')
+    } else {
+      [...e.target.parentNode.children]
+        .filter(node => node.classList.contains('hideable'))
+        .map(node => node.classList.add('hidden'))
+      this._searchExpanded = false
+      e.target.parentNode.children[0].querySelector('.chevron').classList.remove('rotate')
     }
   }
 }
