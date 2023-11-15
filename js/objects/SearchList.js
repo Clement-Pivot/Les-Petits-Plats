@@ -169,13 +169,14 @@ export class SearchList {
     if (Array.isArray(item)) {
       item.forEach(elem => {
         if (elem.ingredient) {
-          // TODO : optimiser ici
-          if (liList.find(li => li.textContent === elem.ingredient)) {
-            liList.find(li => li.textContent === elem.ingredient).classList.remove('unavailable')
+          const found = liList.find(li => li.textContent === elem.ingredient)
+          if (found) {
+            found.classList.remove('unavailable')
           }
         } else {
-          if (liList.find(li => li.textContent === elem)) {
-            liList.find(li => li.textContent === elem).classList.remove('unavailable')
+          const found = liList.find(li => li.textContent === elem)
+          if (found) {
+            found.classList.remove('unavailable')
           }
         }
       })
