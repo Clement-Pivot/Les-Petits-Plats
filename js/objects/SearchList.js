@@ -109,15 +109,13 @@ export class SearchList {
   searchInputChange () {
     let curr = []
     if (this._searchInput.value.length > 0) {
+      const searchText = this._searchInput.value.toLowerCase()
       this._cross.classList.remove('hidden')
       curr = [...this._searchList.querySelectorAll('li.hidden')]
-        .filter(item => item.textContent.toLowerCase()
-          .includes(this._searchInput.value.toLowerCase()))
+        .filter(item => item.textContent.toLowerCase().includes(searchText))
         .map(item => item.classList.remove('hidden'))
-
       curr = [...this._searchList.querySelectorAll('li:not(.hidden)')]
-        .filter((item) => !item.textContent.toLowerCase()
-          .includes(this._searchInput.value.toLowerCase()))
+        .filter((item) => !item.textContent.toLowerCase().includes(searchText))
         .map(item => {
           if (![...item.classList].includes('hidden')) item.classList.add('hidden')
           return item
