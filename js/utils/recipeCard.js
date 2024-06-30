@@ -4,7 +4,7 @@ export function createCardDOM (recipe) {
   article.classList.add('recipe-card')
 
   const img = document.createElement('img')
-  img.setAttribute('src', `../public/img/${recipe.image}`)
+  img.setAttribute('src', `docs/public/img/${recipe.image}`)
   img.setAttribute('alt', `Photo de ${recipe.name}`)
   article.appendChild(img)
 
