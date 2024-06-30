@@ -8,7 +8,7 @@
 
 ## Démarrage
 
-Ouvrez le fichier index.html avec un navigateur internet.
+Ouvrez le fichier index.html avec un navigateur internet ou allez sur [la page GitHub](https://malfeitor.github.io/Les-Petits-Plats/)
 
 ## Fabriqué avec
 
