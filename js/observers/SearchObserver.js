@@ -33,10 +33,24 @@ export class SearchObserver {
 
   fire (text, type = 'bar') {
     let working = []
+    let contains = false
     const startTime = Date.now()
     switch (type) {
       case 'bar':
-        console.log('Text : ' + text)
+        if (this._searchLength > text.length) this.fire('', 'refresh')
+        this._searchLength = text.length
+        working = [...this._shownRecipes]
+        for (let i = 0; i < working.length; i++) {
+          contains = false
+          if (working[i].description.includes(text)) contains = true
+          if (working[i].name.includes(text)) contains = true
+          for (let j = 0; j < working[i].ingredients.length; j++) {
+            if (working[i].ingredients[j].ingredient.includes(text)) contains = true
+          }
+          if (!contains) {
+            this._hiddenRecipes.push(working[i])
+          }
+        }
         break
       case 'ingredients':
       case 'ustensils':
