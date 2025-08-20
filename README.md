@@ -1,7 +1,7 @@
 # Lets Petits Plats
 
  Code du projet 7 Les Petits Plats de la formation React d'OpenClassroom en HTML, SASS et Javascript uniquement.
- Disponible sur [GitHub PAges](https://clement-pivot.github.io/Les-Petits-Plats/)
+ Disponible sur [GitHub Pages](https://clement-pivot.github.io/Les-Petits-Plats/)
 
 ### Pré-requis
 
