@@ -1,3 +1,5 @@
+[![pages-build-deployment](https://github.com/Clement-Pivot/Les-Petits-Plats/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Clement-Pivot/Les-Petits-Plats/actions/workflows/pages/pages-build-deployment)
+
 # Lets Petits Plats
 
  Code du projet 7 Les Petits Plats de la formation React d'OpenClassroom en HTML, SASS et Javascript uniquement. \
